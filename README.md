@@ -4,6 +4,8 @@
 
 ## Description
 
+Ansible role that dynamically creates the hosts file.
+
 ## Installation
 
 ```bash
@@ -16,8 +18,13 @@ ansible-galaxy install arillso.hosts
 
 | Variable             | Default     | Comments (type)                                   |
 | :---                 | :---        | :---                                              |
-| | | |
-| | | |
+| hosts_hostname_loopback | true | creates a 172.0.0.1 entry for the server name. |
+| hosts_inventory_to_hosts | false | Inserts all hosts in the Ansible Inventory file into the Hosts file. |
+
+### Note `hosts_inventory_to_hosts`
+
+For `hosts_inventory_to_hosts` to work, the variable ansible_host must be set in the host_vars.
+Optionally, hosts_aliases can be set in the host_vars, then it generates aliases for the hosts.
 
 ## Dependencies
 
@@ -31,6 +38,10 @@ ansible-galaxy install arillso.hosts
 
 ## Changelog
 
+### 1.0
+
+* inital commit
+
 ## Author
 
 * [Simon Bärlocher](https://sbaerlocher.ch)
@@ -41,4 +52,4 @@ This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/lice
 
 ## Copyright
 
-(c) 2017, Simon Bärlocher
+(c) 2018, Simon Bärlocher
