@@ -1,2 +1,5 @@
 ---
 # defaults file for arillso.hosts
+
+hosts_hostname_loopback: true
+hosts_inventory_to_hosts: false

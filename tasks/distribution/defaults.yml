@@ -1,6 +1,0 @@
----
-# tasks file for arillso.hosts
-
-- name: Message
-  debug:
-    msg: "Your {{ ansible_system }} is not supported"
