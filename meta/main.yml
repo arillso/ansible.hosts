@@ -1,11 +1,10 @@
 ---
 
 galaxy_info:
-  author:
-  description:
-  company:
+  author: Simon Baerlocher <sbaerlocher@sbaerlocher.ch>
+  description: Ansible role that dynamically creates the hosts file.
   license: MIT
-  min_ansible_version: 2
+  min_ansible_version: 2.4
   platforms:
     - name: Archlinux
       versions:
