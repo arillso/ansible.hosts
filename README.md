@@ -38,6 +38,10 @@ Optionally, `hosts_aliases` can be set in the `host_vars`, then it generates ali
 
 ## Changelog
 
+### 1.2
+
+* sort templates ipv4 and ipv6 address
+
 ### 1.1
 
 * add option internel_ansible_host
