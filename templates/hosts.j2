@@ -13,7 +13,7 @@
 {% if hostvars[item]['internel_ansible_host'] is defined %}
 # hostname if internel_ansible_host defined
 {{ hostvars[item]['internel_ansible_host'] }} {{ item }} {{ item.split('.')[0] | lower }}
-{% elif hostvars[item]['ansible_host'] is defined %}
+{% elif hostvars[item]['ansible_host'] is defined and hostvars[item]['internel_ansible_host'] is not defined %}
 # hostname if ansible_host defined
 {{ hostvars[item]['ansible_host'] }} {{ item }} {{ item.split('.')[0] | lower }}
 {% endif %}
@@ -21,7 +21,7 @@
 {% if hostvars[item]['internel_ansible_host'] is defined %}
 # aliasses if internel_ansible_host defined
 {{ hostvars[item]['internel_ansible_host'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %}
-{% elif hostvars[item]['ansible_host'] is defined %}
+{% elif hostvars[item]['ansible_host'] is defined and hostvars[item]['internel_ansible_host'] is not defined %}
 # aliasses if ansible_host defined
 {{ hostvars[item]['ansible_host'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %}
 {% endif %}
