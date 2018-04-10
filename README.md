@@ -18,13 +18,13 @@ ansible-galaxy install arillso.hosts
 
 | Variable             | Default     | Comments (type)                                   |
 | :---                 | :---        | :---                                              |
-| hosts_hostname_loopback | true | creates a 172.0.0.1 entry for the server name. |
+| hosts_hostname_loopback | true | Creates a 172.0.0.1 entry for the server name. |
 | hosts_inventory_to_hosts | false | Inserts all hosts in the Ansible Inventory file into the Hosts file. |
 
 ### Note `hosts_inventory_to_hosts`
 
-For `hosts_inventory_to_hosts` to work, the variable ansible_host must be set in the host_vars.
-Optionally, hosts_aliases can be set in the host_vars, then it generates aliases for the hosts.
+For `hosts_inventory_to_hosts` to work, the variable `internel_ansible_host` must be set in the `host_vars`, alternative can also be set to `ansible_host`.
+Optionally, `hosts_aliases` can be set in the `host_vars`, then it generates aliases for the hosts.
 
 ## Dependencies
 
@@ -37,6 +37,11 @@ Optionally, hosts_aliases can be set in the host_vars, then it generates aliases
 ```
 
 ## Changelog
+
+### 1.1
+
+* add option internel_ansible_host
+* change hosts_inventory_to_hosts to internel_ansible_host by hosts_aliases
 
 ### 1.0
 

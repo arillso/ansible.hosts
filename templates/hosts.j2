@@ -22,16 +22,23 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 {% endif %}
-{%if hosts_inventory_to_hosts %}
-{% for item in groups['all'] %}
-{% if hostvars[item]['ansible_host'] is defined %}
+
+{% if hosts_inventory_to_hosts %}
+    {% for item in groups['all'] %}
+        {% if hostvars[item]['internel_ansible_host'] is defined %}
+{{ hostvars[item]['internel_ansible_host'] }} {{ item }} {{ item.split('.')[0] | lower }}
+        {% elif hostvars[item]['ansible_host'] is defined %}
 {{ hostvars[item]['ansible_host'] }} {{ item }} {{ item.split('.')[0] | lower }}
-{% endif %}
-{% if hostvars[item]['hosts_aliases'] is defined %}
-{{ hostvars[item]['ansible_default_ipv4']['address'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %}
-{% if ansible_default_ipv6.address is defined %}
-{% endif %}
-{{ hostvars[item]['ansible_default_ipv6']['address'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %}
-{% endif %}
-{% endfor  %}
+        {% endif %}
+
+        {% if hostvars[item]['internel_ansible_host'] is defined %}
+{{ hostvars[item]['internel_ansible_host'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %}
+        {% elif hostvars[item]['ansible_host'] is defined %}
+{{ hostvars[item]['ansible_host'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %}
+        {% endif %}
+
+        {% if ansible_default_ipv6.address is defined %}
+{{ hostvars[item]['ansible_default_ipv6']['address'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %} 
+        {% endif %}
+    {% endfor  %}
 {% endif %}
