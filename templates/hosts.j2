@@ -9,23 +9,16 @@
 {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }} {{ inventory_hostname | lower }} {{ inventory_hostname_short | lower }}
 {% if hosts_inventory_to_hosts %}
 {% for item in groups['all'] %}
-
 {% if hostvars[item]['internel_ansible_host'] is defined %}
-# hostname if internel_ansible_host defined
 {{ hostvars[item]['internel_ansible_host'] }} {{ item }} {{ item.split('.')[0] | lower }}
 {% else %}
-# hostname if ansible_host defined
 {{ hostvars[item]['ansible_host'] }} {{ item }} {{ item.split('.')[0] | lower }}
 {% endif %}
-
 {% if hostvars[item]['internel_ansible_host'] is defined %}
-# aliasses if internel_ansible_host defined
 {{ hostvars[item]['internel_ansible_host'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %}
 {% else %}
-# aliasses if ansible_host defined
 {{ hostvars[item]['ansible_host'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %}
 {% endif %}
-
 {% if ansible_default_ipv6.address is defined %}
 # The following lines are desirable for IPv6 capable hosts
 {%if hosts_hostname_loopback %}
@@ -40,8 +33,6 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
-
-# aliasses
 {{ hostvars[item]['ansible_default_ipv6']['address'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %} 
 {% endif %}
 {% endfor  %}
