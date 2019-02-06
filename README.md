@@ -38,6 +38,10 @@ Optionally, `hosts_aliases` can be set in the `host_vars`, then it generates ali
 
 ## Changelog
 
+### 1.3
+
+* add support for dns lists
+
 ### 1.2
 
 * sort templates ipv4 and ipv6 address
