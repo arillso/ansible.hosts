@@ -41,6 +41,6 @@ ff02::3 ip6-allhosts
 
 {% if hosts_dns_hostname is defined %}
 {% for item in hosts_dns_hostname %}
-{{ item.address }} {{ item.hostname }}{% if item.aliases is defined %}{% for alias in item.aliases %} {{ alias }}{% endfor %}{% endif %}
+{{ item.address }} {{ item.hostname }}{% if item.aliases is defined %}{% for alias in item.aliases %} {{ alias }}{% endfor %}{% endif %} 
 {% endfor  %} 
 {% endif %}
