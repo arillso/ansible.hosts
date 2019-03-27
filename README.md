@@ -1,6 +1,6 @@
 # Ansible Role: hosts
 
-[![Build Status](https://travis-ci.org/arillso/ansible.hosts.svg?branch=master)](https://travis-ci.org/arillso/ansible.hosts) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://sbaerlo.ch/licence) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-hosts-blue.svg)](https://galaxy.ansible.com/arillso/hosts)
+[![Build Status](https://img.shields.io/travis/arillso/ansible.hosts.svg?branch=master&style=popout-square)](https://travis-ci.org/arillso/ansible.hosts) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=popout-square)](https://sbaerlo.ch/licence) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-hosts-blue.svg?style=popout-square)](https://galaxy.ansible.com/arillso/hosts) [![Ansible Role](https://img.shields.io/ansible/role/d/24841.svg?style=popout-square)](https://galaxy.ansible.com/arillso/hosts)
 
 ## Description
 
@@ -16,10 +16,10 @@ ansible-galaxy install arillso.hosts
 
 ## Role Variables
 
-| Variable             | Default     | Comments (type)                                   |
-| :---                 | :---        | :---                                              |
-| hosts_hostname_loopback | true | Creates a 172.0.0.1 entry for the server name. |
-| hosts_inventory_to_hosts | false | Inserts all hosts in the Ansible Inventory file into the Hosts file. |
+| Variable                 | Default | Comments (type)                                                      |
+| :----------------------- | :------ | :------------------------------------------------------------------- |
+| hosts_hostname_loopback  | true    | Creates a 172.0.0.1 entry for the server name.                       |
+| hosts_inventory_to_hosts | false   | Inserts all hosts in the Ansible Inventory file into the Hosts file. |
 
 ### Note `hosts_inventory_to_hosts`
 
@@ -33,31 +33,36 @@ Optionally, `hosts_aliases` can be set in the `host_vars`, then it generates ali
 ```yml
 - hosts: all
   roles:
-     - arillso.hosts
+    - arillso.hosts
 ```
 
 ## Changelog
 
+### 1.4
+
+- Add newline at end of each hostname entry of hosts_dns_hostname
+- Fix ipv6 entries
+
 ### 1.3
 
-* add support for dns lists
+- add support for dns lists
 
 ### 1.2
 
-* sort templates ipv4 and ipv6 address
+- sort templates ipv4 and ipv6 address
 
 ### 1.1
 
-* add option internel_ansible_host
-* change hosts_inventory_to_hosts to internel_ansible_host by hosts_aliases
+- add option internel_ansible_host
+- change hosts_inventory_to_hosts to internel_ansible_host by hosts_aliases
 
 ### 1.0
 
-* inital commit
+- inital commit
 
 ## Author
 
-* [Simon Bärlocher](https://sbaerlocher.ch)
+- [Simon Bärlocher](https://sbaerlocher.ch)
 
 ## License
 
@@ -65,4 +70,4 @@ This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/lice
 
 ## Copyright
 
-(c) 2018, Simon Bärlocher
+(c) 2019, Simon Bärlocher
