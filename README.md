@@ -16,10 +16,11 @@ ansible-galaxy install arillso.hosts
 
 ## Role Variables
 
-| Variable                 | Default | Comments (type)                                                      |
-| :----------------------- | :------ | :------------------------------------------------------------------- |
-| hosts_hostname_loopback  | true    | Creates a 172.0.0.1 entry for the server name.                       |
-| hosts_inventory_to_hosts | false   | Inserts all hosts in the Ansible Inventory file into the Hosts file. |
+| Variable                 | Default | Comments (type)                                                                  |
+| :----------------------- | :------ | :------------------------------------------------------------------------------- |
+| hosts_hostname_loopback  | true    | Creates a 172.0.0.1 entry for the server name.                                   |
+| hosts_inventory_to_hosts | false   | Inserts all hosts in the Ansible Inventory file into the Hosts file.             |
+| hosts_ipv6               | true    | Ipv6 localhost entries are set automatically. Setting false it can be prevented. |
 
 ### Note `hosts_inventory_to_hosts`
 
@@ -37,6 +38,11 @@ Optionally, `hosts_aliases` can be set in the `host_vars`, then it generates ali
 ```
 
 ## Changelog
+
+### 1.5
+
+- Add option for ipv6 enable or disable
+- Change check from `ansible_default_ipv6.address` to `ansible_lo.ipv6`
 
 ### 1.4
 

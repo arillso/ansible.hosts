@@ -7,7 +7,7 @@
 127.0.0.1 localhost.localdomain localhost
 127.0.0.1 localhost4.localdomain4 localhost4
 {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }} {{ inventory_hostname | lower }} {{ inventory_hostname_short | lower }}
-{% if ansible_default_ipv6.address is defined %}
+{% if ansible_lo.ipv6 is defined and hosts_ipv6 %}
 
 # The following lines are desirable for IPv6 capable hosts
 {% if hosts_hostname_loopback %}
