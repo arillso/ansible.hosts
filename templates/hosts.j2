@@ -16,7 +16,9 @@
 ::1 localhost.localdomain localhost
 ::1 localhost6.localdomain6 localhost6
 ::1 ip6-localhost ip6-loopback
+{% if hostvars[inventory_hostname]['ansible_default_ipv6']['address'] is defined %}
 {{ hostvars[inventory_hostname]['ansible_default_ipv6']['address'] }} {{ inventory_hostname | lower }} {{ inventory_hostname_short | lower }}
+{% endif %}
 fe00::0 ip6-localnet
 ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
