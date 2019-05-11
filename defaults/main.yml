@@ -3,3 +3,4 @@
 
 hosts_hostname_loopback: true
 hosts_inventory_to_hosts: false
+hosts_ipv6: true
