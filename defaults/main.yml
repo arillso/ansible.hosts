@@ -1,6 +1,13 @@
 ---
 # defaults file for arillso.hosts
 
+# Creates a 172.0.0.1 entry for the server name.
 hosts_hostname_loopback: true
+
+# Inserts all hosts in the Ansible Inventory
+# file into the Hosts file
 hosts_inventory_to_hosts: false
+
+# Ipv6 localhost entries are set automatically.
+# Setting false it can be prevented.
 hosts_ipv6: true

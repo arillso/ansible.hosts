@@ -16,11 +16,29 @@ ansible-galaxy install arillso.hosts
 
 ## Role Variables
 
-| Variable                 | Default | Comments (type)                                                                  |
-| :----------------------- | :------ | :------------------------------------------------------------------------------- |
-| hosts_hostname_loopback  | true    | Creates a 172.0.0.1 entry for the server name.                                   |
-| hosts_inventory_to_hosts | false   | Inserts all hosts in the Ansible Inventory file into the Hosts file.             |
-| hosts_ipv6               | true    | Ipv6 localhost entries are set automatically. Setting false it can be prevented. |
+### Loppback
+
+Creates a 172.0.0.1 entry for the server name.
+
+```yml
+hosts_hostname_loopback: true
+```
+
+### Inventory
+
+Inserts all hosts in the Ansible Inventory file into the Hosts file.
+
+```yml
+hosts_inventory_to_hosts: false
+```
+
+### IPv6
+
+Ipv6 localhost entries are set automatically. Setting false it can be prevented.
+
+```yml
+hosts_ipv6: true
+```
 
 ### Note `hosts_inventory_to_hosts`
 
@@ -37,35 +55,6 @@ Optionally, `hosts_aliases` can be set in the `host_vars`, then it generates ali
     - arillso.hosts
 ```
 
-## Changelog
-
-### 1.5
-
-- Add option for ipv6 enable or disable
-- Change check from `ansible_default_ipv6.address` to `ansible_lo.ipv6`
-
-### 1.4
-
-- Add newline at end of each hostname entry of hosts_dns_hostname
-- Fix ipv6 entries
-
-### 1.3
-
-- add support for dns lists
-
-### 1.2
-
-- sort templates ipv4 and ipv6 address
-
-### 1.1
-
-- add option internel_ansible_host
-- change hosts_inventory_to_hosts to internel_ansible_host by hosts_aliases
-
-### 1.0
-
-- inital commit
-
 ## Author
 
 - [Simon Bärlocher](https://sbaerlocher.ch)
@@ -76,4 +65,4 @@ This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/lice
 
 ## Copyright
 
-(c) 2019, Simon Bärlocher
+(c) 2019, Arillso
