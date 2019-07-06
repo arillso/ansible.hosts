@@ -4,7 +4,8 @@
 - name: 'create hosts'
   become: true
   template:
-    src: hosts.j2
+    src: etc/hosts.j2
     dest: /etc/hosts
   tags:
     - configuration
+    - notest

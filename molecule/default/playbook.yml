@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    hosts_hostname_loopback: false
+    hosts_inventory_to_hosts: false
+    hosts_ipv6: false
+  roles:
+    - role: arillso.hosts

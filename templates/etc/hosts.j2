@@ -1,0 +1,51 @@
+# {{ ansible_managed }}
+
+# The following lines are desirable for IPv4 capable hosts
+{% if hosts_hostname_loopback %}
+127.0.0.1 {{ inventory_hostname | lower }} {{ inventory_hostname_short | lower }} 
+{% endif %}
+127.0.0.1 localhost.localdomain localhost
+127.0.0.1 localhost4.localdomain4 localhost4
+{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }} {{ inventory_hostname | lower }} {{ inventory_hostname_short | lower }}
+{% if ansible_lo.ipv6 is defined and hosts_ipv6 %}
+
+# The following lines are desirable for IPv6 capable hosts
+{% if hosts_hostname_loopback %}
+::1 {{ inventory_hostname | lower }} {{ inventory_hostname_short | lower }} 
+{% endif %}
+::1 localhost.localdomain localhost
+::1 localhost6.localdomain6 localhost6
+::1 ip6-localhost ip6-loopback
+{% if hostvars[inventory_hostname]['ansible_default_ipv6']['address'] is defined %}
+{{ hostvars[inventory_hostname]['ansible_default_ipv6']['address'] }} {{ inventory_hostname | lower }} {{ inventory_hostname_short | lower }}
+{% endif %}
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+{% endif %}
+{% if hosts_inventory_to_hosts %}
+{% for item in groups['all'] %}
+
+{% if hostvars[item]['internel_ansible_host'] is defined %}
+{{ hostvars[item]['internel_ansible_host'] }} {{ item }} {{ item.split('.')[0] | lower }}
+{% else %}
+{{ hostvars[item]['ansible_host'] }} {{ item }} {{ item.split('.')[0] | lower }}
+{% endif %}
+{% if hostvars[item]['internel_ansible_host'] is defined %}
+{{ hostvars[item]['internel_ansible_host'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %}
+{% else %}
+{{ hostvars[item]['ansible_host'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %}
+{% endif %}
+{% if ansible_default_ipv6.address is defined %}
+{{ hostvars[item]['ansible_default_ipv6']['address'] }}{% for item in hostvars[item]['hosts_aliases'] %} {{ item }}{% endfor %} 
+{% endif %}
+{% endfor  %}
+{% endif %}
+
+{% if hosts_dns_hostname is defined %}
+{% for item in hosts_dns_hostname %}
+{{ item.address }} {{ item.hostname }}{% if item.aliases is defined %}{% for alias in item.aliases %} {{ alias }}{% endfor %}{% endif %} 
+{% endfor  %} 
+{% endif %}
