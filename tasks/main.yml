@@ -4,8 +4,16 @@
 - name: 'create hosts'
   become: true
   template:
-    src: etc/hosts.j2
-    dest: /etc/hosts
+    src: 'etc/hosts.j2'
+    dest: '/etc/hosts'
+    backup: '{{ hosts_backup }}'
+    group: '{{ hosts_group }}'
+    owner: '{{ hosts_owner }}'
+    serole: '{{ hosts_serole }}'
+    setype: '{{ hosts_setype }}'
+    seuser: '{{ hosts_seuser }}'
+    selevel: '{{ hosts_selevel }}'
+    mode: '{{ hosts_mode }}'
   tags:
     - configuration
     - notest
