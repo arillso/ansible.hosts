@@ -42,7 +42,7 @@ Owner of hosts file.
 hosts_owner: root
 ```
 
-hosts_mode
+### hosts_mode
 
 Access permission hosts file.
 
