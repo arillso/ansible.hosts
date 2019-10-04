@@ -7,7 +7,7 @@ and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- add optino for `hosts_backup`, `hosts_group`, `hosts_owner` and `hosts_mode`
+- add option for `hosts_backup`, `hosts_group`, `hosts_owner` and `hosts_mode`
 - add option SELinux
 
 ## 1.6.0
