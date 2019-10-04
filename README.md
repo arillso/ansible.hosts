@@ -18,6 +18,49 @@ None
 
 ## Role Variables
 
+### hosts_backup
+
+Backup the hosts file before changing it.
+
+```yml
+hosts_backup: false
+```
+
+### hosts_group
+
+Group owner of hosts file.
+
+```yml
+hosts_group: root
+```
+
+### hosts_owner
+
+Owner of hosts file.
+
+```yml
+hosts_owner: root
+```
+
+### hosts_mode
+
+Access permission hosts file.
+
+```yml
+hosts_mode: 0644
+```
+
+### SELinux
+
+Settings for SElinux.
+
+```yml
+hosts_serole: system_u
+hosts_setype: object_r
+hosts_seuser: etc_t
+hosts_selevel: s0
+```
+
 ### Loppback
 
 Creates a 172.0.0.1 entry for the server name.

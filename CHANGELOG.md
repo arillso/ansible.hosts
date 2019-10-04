@@ -3,6 +3,13 @@
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 1.7.0
+
+### Added
+
+- add option for `hosts_backup`, `hosts_group`, `hosts_owner` and `hosts_mode`
+- add option SELinux
+
 ## 1.6.0
 
 ### Changed
