@@ -55,9 +55,9 @@ hosts_mode: 0644
 Settings for SElinux.
 
 ```yml
-hosts_serole: system_u
-hosts_setype: object_r
-hosts_seuser: etc_t
+hosts_serole: object_r
+hosts_setype: net_conf_t
+hosts_seuser: system_u
 hosts_selevel: s0
 ```
 

@@ -3,6 +3,12 @@
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 1.7.1
+
+### Fixed
+
+- fix SELinux error.
+
 ## 1.7.0
 
 ### Added
