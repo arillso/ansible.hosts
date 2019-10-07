@@ -11,9 +11,9 @@ hosts_group: root
 hosts_owner: root
 
 # Settings for SElinux.
-hosts_serole: system_u
-hosts_setype: object_r
-hosts_seuser: etc_t
+hosts_serole: object_r
+hosts_setype: net_conf_t
+hosts_seuser: system_u
 hosts_selevel: s0
 
 # Access permission hosts file.
