@@ -3,6 +3,18 @@
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 1.7.2
+
+### Fixed
+
+- Fix error message when hosts_aliases is not defined
+
+### Changed
+
+- Replace groups['all'] by hosts_inventory_to_hosts to use only the targeted group in playbook (can be all also)
+- Rewrite template to not add duplicates
+- Improve the IPv6 part
+
 ## 1.7.1
 
 ### Fixed
