@@ -63,7 +63,7 @@ hosts_selevel: s0
 
 ### Loppback
 
-Creates a 172.0.0.1 entry for the server name.
+Creates a 127.0.0.1 entry for the server name.
 
 ```yml
 hosts_hostname_loopback: true
