@@ -61,7 +61,7 @@ hosts_seuser: system_u
 hosts_selevel: s0
 ```
 
-### Loppback
+### Loopback
 
 Creates a 127.0.0.1 entry for the server name.
 
@@ -86,6 +86,14 @@ Ipv6 localhost entries are set automatically. Setting false it can be prevented.
 
 ```yml
 hosts_ipv6: true
+```
+
+### IPv4 address
+
+Address that you would like to use as IPv4 address. This could be overriden by what you want.
+
+```yml
+hosts_ipv4_address: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
 ```
 
 ## Dependencies

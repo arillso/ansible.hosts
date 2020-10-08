@@ -29,3 +29,6 @@ hosts_inventory_to_hosts: false
 # Ipv6 localhost entries are set automatically.
 # Setting false it can be prevented.
 hosts_ipv6: true
+
+# Set ipv4 address (could be override by what you want)
+hosts_ipv4_address: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
