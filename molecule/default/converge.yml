@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    ansible_python_interpreter: auto_silent
+  tasks:
+    - name: "Include arillso.hosts"
+      include_role:
+        name: "arillso.hosts"
