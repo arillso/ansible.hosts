@@ -1,0 +1,23 @@
+---
+name: Role Test Release
+on:
+  push:
+  pull_request:
+
+jobs:
+  molecule-release:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: arillso.hosts
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: arillso.hosts
+
+      - name: Ansible Molecule Test
+        uses: gofrolist/molecule-action@v2.0.1
+        with:
+          molecule_command: test
+          molecule_working_dir: arillso.hosts

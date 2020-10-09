@@ -33,7 +33,7 @@ jobs:
           path: arillso.hosts
 
       - name: Ansible Molecule Test
-        uses: gofrolist/molecule-action@v2
+        uses: gofrolist/molecule-action@v2.0.1
         with:
           molecule_command: test
           molecule_args: --scenario-name ${{ matrix.scenario }}
