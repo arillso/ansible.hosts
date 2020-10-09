@@ -2,28 +2,16 @@
 language: python
 services: docker
 
-env:
-  global:
-    - ROLE_NAME: hosts
-  matrix:
-    - MOLECULE_DISTRO: centos7
-    - MOLECULE_DISTRO: centos6
-    - MOLECULE_DISTRO: ubuntu1804
-    - MOLECULE_DISTRO: debian9
-    - MOLECULE_DISTRO: debian10
-
 install:
-  - pip install molecule docker
-
-  - git clone https://github.com/arillso/tests molecule/default/lint
+  - curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
 
 before_script:
   - cd ../
-  - mv ansible.$ROLE_NAME arillso.$ROLE_NAME
-  - cd arillso.$ROLE_NAME
+  - mv ansible.hosts arillso.hosts
+  - cd arillso.hosts
 
 script:
-  - molecule test
+  - act
 
 notifications:
   webhooks:

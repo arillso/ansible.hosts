@@ -33,9 +33,8 @@ jobs:
           path: arillso.hosts
 
       - name: Ansible Molecule Test
-        uses: onaio/molecule-action@master
+        uses: gofrolist/molecule-action@v2
         with:
           molecule_command: test
           molecule_args: --scenario-name ${{ matrix.scenario }}
-        env:
-          GITHUB_REPOSITORY: arillso.hosts
+          molecule_working_dir: arillso.hosts
