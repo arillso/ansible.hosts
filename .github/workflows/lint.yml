@@ -22,5 +22,4 @@ jobs:
         uses: github/super-linter@v3
         env:
           DEFAULT_BRANCH: main
-          MARKDOWN_CONFIG_FILE: .markdown-lint
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
