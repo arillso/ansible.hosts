@@ -1,6 +1,6 @@
 # Ansible Role: hosts
 
-[![Build Status](https://img.shields.io/travis/arillso/ansible.hosts.svg?branch=master&style=popout-square)](https://travis-ci.org/arillso/ansible.hosts) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=popout-square)](https://sbaerlo.ch/licence) [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-hosts-blue.svg?style=popout-square)](https://galaxy.ansible.com/arillso/hosts) [![Ansible Role](https://img.shields.io/ansible/role/d/24841.svg?style=popout-square)](https://galaxy.ansible.com/arillso/hosts)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](licence) [![Ansible Role](https://img.shields.io/ansible/role/24841?label=role%20name&style=flat-square)](https://galaxy.ansible.com/arillso/hosts) [![Ansible Role](https://img.shields.io/ansible/role/d/24841.svg?style=flat-square)](https://galaxy.ansible.com/arillso/hosts) [![Ansible Quality Score](https://img.shields.io/ansible/quality/24841?label=role%20quality&style=flat-square)](https://galaxy.ansible.com/arillso/hosts) [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/arillso/ansible.hosts?style=flat-square)](https://github.com/arillso/ansible.hosts/releases) [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/arillso/ansible.hosts/Role%20Tests/master?label=integration%20tests&style=flat-square)](https://github.com/arillso/ansible.hosts/actions?query=workflow%3A%22Role+Tests%22) [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/arillso/ansible.hosts/master?style=flat-square)](https://github.com/arillso/ansible.hosts/commits/main)
 
 ## Description
 
@@ -17,6 +17,14 @@ ansible-galaxy install arillso.hosts
 None
 
 ## Role Variables
+
+### hosts_file
+
+Path to the host file on the target system.
+
+```yml
+hosts_file: /etc/hosts
+```
 
 ### hosts_backup
 
@@ -118,4 +126,4 @@ This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/lice
 
 ## Copyright
 
-(c) 2019, Arillso
+(c) 2020, Arillso

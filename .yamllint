@@ -5,4 +5,4 @@ rules:
   comments: disable
 
 ignore: |
-  .github/workflows/tests.yml
+  .github/workflows/*

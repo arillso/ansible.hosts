@@ -1,11 +1,11 @@
 ---
-name: Role Test Release
+name: Role Release
 on:
-  push:
-  pull_request:
+  release:
+    types: [published]
 
 jobs:
-  molecule-release:
+  release:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -21,3 +21,15 @@ jobs:
         with:
           molecule_command: test
           molecule_working_dir: arillso.hosts
+
+  publish:
+    runs-on: ubuntu-latest
+    if: always()
+    needs:
+      - release
+
+    steps:
+      - name: Release Ansible Role to Galaxy
+        uses: hspaans/ansible-galaxy-action@v0.1.1
+        with:
+          api_key: ${{ secrets.GALAXY_API_KEY }}

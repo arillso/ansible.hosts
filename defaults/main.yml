@@ -1,6 +1,9 @@
 ---
 # defaults file for arillso.hosts
 
+# Path to the host file on the target system.
+hosts_file: /etc/hosts
+
 # Backup the hosts file before changing it.
 hosts_backup: false
 

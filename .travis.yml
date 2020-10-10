@@ -11,7 +11,7 @@ before_script:
   - cd arillso.hosts
 
 script:
-  - act -j molecule-release
+  - act -j release
 
 notifications:
   webhooks:
