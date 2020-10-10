@@ -23,4 +23,3 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          YAML_CONFIG_FILE: .yamllint
