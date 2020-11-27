@@ -34,7 +34,7 @@ jobs:
           path: arillso.hosts
 
       - name: Test Ansible with Molecule
-        uses: arillso/action.molecule@master
+        uses: arillso/action.molecule@main
         with:
           command: test
           working_directory: arillso.hosts
