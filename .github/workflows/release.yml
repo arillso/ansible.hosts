@@ -7,29 +7,36 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+
+    name: Role Release Test
+
     defaults:
       run:
         working-directory: arillso.hosts
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
         with:
           path: arillso.hosts
 
-      - name: Ansible Molecule Test
-        uses: gofrolist/molecule-action@v2.0.1
+      - name: Test Ansible with Molecule
+        uses: arillso/action.molecule@master
         with:
-          molecule_command: test
-          molecule_working_dir: arillso.hosts
+          command: test
+          working_directory: arillso.hosts
 
   publish:
     runs-on: ubuntu-latest
+
+    name: Role Release Publish
+
     if: always()
     needs:
       - release
 
     steps:
       - name: Release Ansible Role to Galaxy
-        uses: hspaans/ansible-galaxy-action@v0.1.1
+        uses: robertdebock/galaxy-action@1.1.0
         with:
-          api_key: ${{ secrets.GALAXY_API_KEY }}
+          galaxy_api_key: ${{ secrets.GALAXY_API_KEY }}

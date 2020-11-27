@@ -10,10 +10,16 @@ and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 - Added github action for the integration tests.
 - Added test scenario for different OS.
 - Added compatibility for Ansible 2.10.
+- Added the option `hosts_all_private` which lists all Private IP addresses from the inventory.
+- Added the option `hosts_all_public` which lists all Public IP addresses from the inventory.
 
 ### Removed
 
 - Degreasing support for Ansible Version under 2.9.
+
+### Deprecated
+
+- Removal of the option `internel_ansible_host` these are now removed by the `hosts_all_private` and `hosts_all_public` now.
 
 ## 1.8.0
 

@@ -29,6 +29,12 @@ hosts_hostname_loopback: true
 # file into the Hosts file
 hosts_inventory_to_hosts: false
 
+# If this option and the hosts_inventory_to_hosts is enabled it writes all private ip addresses from the inventory into the hosts
+hosts_all_private: true
+
+# If this option and the hosts_inventory_to_hosts is enabled it writes all public ip addresses from the inventory into the hosts.
+hosts_all_public: false
+
 # Ipv6 localhost entries are set automatically.
 # Setting false it can be prevented.
 hosts_ipv6: true
