@@ -40,8 +40,8 @@ repository:
 
 branches:
   - name: main
-    # https://developer.github.com/v3/repos/branches/#update-branch-protection
-    # Branch Protection settings. Set to null to disable
+  # https://developer.github.com/v3/repos/branches/#update-branch-protection
+  # Branch Protection settings. Set to null to disable
       required_status_checks:
         # Required. Require branches to be up to date before merging.
         strict: true
