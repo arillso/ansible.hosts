@@ -1,6 +1,10 @@
 # Ansible Role: hosts
 
-[![Build Status](https://img.shields.io/travis/arillso/ansible.hosts.svg?branch=master&style=popout-square)](https://travis-ci.org/arillso/ansible.hosts) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=popout-square)](https://sbaerlo.ch/licence) [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-hosts-blue.svg?style=popout-square)](https://galaxy.ansible.com/arillso/hosts) [![Ansible Role](https://img.shields.io/ansible/role/d/24841.svg?style=popout-square)](https://galaxy.ansible.com/arillso/hosts)
+<!-- markdownlint-disable MD013 -->
+
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&logo=Open%20Source%20Initiative)](LICENSE) [![Ansible Role](https://img.shields.io/ansible/role/24841?label=role%20name&style=flat-square&logo=ansible)](https://galaxy.ansible.com/arillso/hosts) [![Ansible Role](https://img.shields.io/ansible/role/d/24841.svg?style=flat-square&logo=ansible)](https://galaxy.ansible.com/arillso/hosts) [![Ansible Quality Score](https://img.shields.io/ansible/quality/24841?label=role%20quality&style=flat-square&logo=ansible)](https://galaxy.ansible.com/arillso/hosts) [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/arillso/ansible.hosts?style=flat-square&logo=github)](https://github.com/arillso/ansible.hosts/releases) [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/arillso/ansible.hosts/Role%20Tests/master?label=integration%20tests&style=flat-square&logo=github)](https://github.com/arillso/ansible.hosts/actions?query=workflow%3A%22Role+Tests%22)
+
+<!-- markdownlint-enable MD012 -->
 
 ## Description
 
@@ -17,6 +21,14 @@ ansible-galaxy install arillso.hosts
 None
 
 ## Role Variables
+
+### hosts_file
+
+Path to the host file on the target system.
+
+```yml
+hosts_file: /etc/hosts
+```
 
 ### hosts_backup
 
@@ -77,8 +89,23 @@ Inserts all hosts in the Ansible Inventory file into the Hosts file.
 hosts_inventory_to_hosts: false
 ```
 
-For `hosts_inventory_to_hosts` to work, the variable `internel_ansible_host` must be set in the `host_vars`, alternative can also be set to `ansible_host`.
 Optionally, `hosts_aliases` can be set in the `host_vars`, then it generates aliases for the hosts.
+
+### All Private
+
+If this option and the `hosts_inventory_to_hosts` is enabled it writes all private ip addresses from the inventory into the hosts
+
+```yml
+hosts_all_private: true
+```
+
+### All Public
+
+If this option and the `hosts_inventory_to_hosts` is enabled it writes all public ip addresses from the inventory into the hosts.
+
+```yml
+hosts_all_public: false
+```
 
 ### IPv6
 
@@ -118,4 +145,4 @@ This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/lice
 
 ## Copyright
 
-(c) 2019, Arillso
+(c) 2020, Arillso

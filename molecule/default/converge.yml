@@ -1,0 +1,10 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    ansible_python_interpreter: auto_silent
+    hosts_file: /etc/hosts.test
+  tasks:
+    - name: "Include arillso.hosts"
+      include_role:
+        name: "arillso.hosts"

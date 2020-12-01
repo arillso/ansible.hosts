@@ -1,6 +1,9 @@
 ---
 # defaults file for arillso.hosts
 
+# Path to the host file on the target system.
+hosts_file: /etc/hosts
+
 # Backup the hosts file before changing it.
 hosts_backup: false
 
@@ -25,6 +28,12 @@ hosts_hostname_loopback: true
 # Inserts all hosts in the Ansible Inventory
 # file into the Hosts file
 hosts_inventory_to_hosts: false
+
+# If this option and the hosts_inventory_to_hosts is enabled it writes all private ip addresses from the inventory into the hosts
+hosts_all_private: true
+
+# If this option and the hosts_inventory_to_hosts is enabled it writes all public ip addresses from the inventory into the hosts.
+hosts_all_public: false
 
 # Ipv6 localhost entries are set automatically.
 # Setting false it can be prevented.
