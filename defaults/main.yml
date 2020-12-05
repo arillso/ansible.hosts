@@ -41,3 +41,8 @@ hosts_ipv6: true
 
 # Set ipv4 address (could be override by what you want)
 hosts_ipv4_address: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+
+# List of network cards that should not be added to the hosts file.
+hosts_exludes_interfaces:
+  - 'vet*'
+  - 'docker'

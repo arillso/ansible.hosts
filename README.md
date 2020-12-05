@@ -2,7 +2,7 @@
 
 <!-- markdownlint-disable MD013 -->
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&logo=Open%20Source%20Initiative)](LICENSE) [![Ansible Role](https://img.shields.io/ansible/role/24841?label=role%20name&style=flat-square&logo=ansible)](https://galaxy.ansible.com/arillso/hosts) [![Ansible Role](https://img.shields.io/ansible/role/d/24841.svg?style=flat-square&logo=ansible)](https://galaxy.ansible.com/arillso/hosts) [![Ansible Quality Score](https://img.shields.io/ansible/quality/24841?label=role%20quality&style=flat-square&logo=ansible)](https://galaxy.ansible.com/arillso/hosts) [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/arillso/ansible.hosts?style=flat-square&logo=github)](https://github.com/arillso/ansible.hosts/releases) [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/arillso/ansible.hosts/Role%20Tests/master?label=integration%20tests&style=flat-square&logo=github)](https://github.com/arillso/ansible.hosts/actions?query=workflow%3A%22Role+Tests%22)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&logo=Open%20Source%20Initiative)](LICENSE) [![Ansible Role](https://img.shields.io/ansible/role/24841?label=role%20name&style=flat-square&logo=ansible)](https://galaxy.ansible.com/arillso/hosts) [![Ansible Role](https://img.shields.io/ansible/role/d/24841.svg?style=flat-square&logo=ansible)](https://galaxy.ansible.com/arillso/hosts) [![Ansible Quality Score](https://img.shields.io/ansible/quality/24841?label=role%20quality&style=flat-square&logo=ansible)](https://galaxy.ansible.com/arillso/hosts) [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/arillso/ansible.hosts?style=flat-square&logo=github)](https://github.com/arillso/ansible.hosts/releases) [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/arillso/ansible.hosts/Role%20Tests/main?label=tests&style=flat-square&logo=github)](https://github.com/arillso/ansible.hosts/actions?query=workflow%3A%22Role+Tests%22)
 
 <!-- markdownlint-enable MD012 -->
 
@@ -121,6 +121,16 @@ Address that you would like to use as IPv4 address. This could be overriden by w
 
 ```yml
 hosts_ipv4_address: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+```
+
+### hosts_exludes_interfaces
+
+List of network cards that should not be added to the hosts file.
+
+```yml
+hosts_exludes_interfaces:
+  - 'vet*'
+  - 'docker'
 ```
 
 ## Dependencies

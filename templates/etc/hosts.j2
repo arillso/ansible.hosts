@@ -31,7 +31,7 @@ ff02::3 ip6-allhosts
 {% for host in groups['all'] %}
 {% if hostvars[host]['ansible_interfaces'] is defined %}
 {% for interface in hostvars[host]['ansible_interfaces'] %}
-{% if "br" not in interface %}
+{% if interface | regex_search('^((?!' +  hosts_exludes_interfaces | join('|') + '*).)*$')  %}
 {% if hostvars[host]['ansible_' + interface]['ipv4']['address'] | ansible.netcommon.ipaddr('private') and hosts_all_private %}
 {{ hostvars[host]['ansible_' + interface]['ipv4']['address'] }} {{ hostvars[host]['ansible_hostname'] }} {{ host }}{{ " " if hostvars[host]['hosts_aliases'] is defined }}{% if hostvars[host]['hosts_aliases'] is defined %}{% for alias in hostvars[host]['hosts_aliases'] %}{{ alias }}{{ " " if not loop.last }}{% endfor %}{% endif %}{{ '\n' -}}
 {% elif hostvars[host]['ansible_' + interface]['ipv4']['address'] | ansible.netcommon.ipaddr('public') and hosts_all_public %}
@@ -47,7 +47,7 @@ ff02::3 ip6-allhosts
 {% for host in groups['all'] %}
 {% if hostvars[host]['ansible_interfaces'] is defined %}
 {% for interface in hostvars[host]['ansible_interfaces'] %}
-{% if "br" not in interface %}
+{% if interface | regex_search('^((?!' +  hosts_exludes_interfaces | join('|') + '*).)*$')  %}
 {% if hostvars[host]['ansible_' + interface]['ipv6']['address'] | ansible.netcommon.ipaddr('private') and hosts_all_private %}
 {{ hostvars[host]['ansible_' + interface]['ipv6']['address'] }} {{ hostvars[host]['ansible_hostname'] }} {{ host }} {% set aliases=[] %}{% if hostvars[host]['hosts_aliases'] is defined %}{% for alias in hostvars[host]['hosts_aliases'] %}{% if alias != hostvars[host]['internel_ansible_host'] %}{{ aliases.append(alias) }}{% endif %}{% endfor %}{% endif %}
 {% elif hostvars[host]['ansible_' + interface]['ipv6']['address'] | ansible.netcommon.ipaddr('public') and hosts_all_public %}
