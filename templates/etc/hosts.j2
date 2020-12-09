@@ -33,11 +33,11 @@ ff02::3 ip6-allhosts
 {% for interface in hostvars[host]['ansible_interfaces'] %}
 {% if interface | regex_search('^((?!' +  hosts_exludes_interfaces | join('|') + '*).)*$')  %}
 {% if hostvars[host]['ansible_' + interface]['ipv4']['address'] | ansible.netcommon.ipaddr('private') and hosts_all_private %}
-{{ hostvars[host]['ansible_' + interface]['ipv4']['address'] }} {{ hostvars[host]['ansible_hostname'] }} {{ host }}{{ " " if hostvars[host]['hosts_aliases'] is defined }}{% if hostvars[host]['hosts_aliases'] is defined %}{% for alias in hostvars[host]['hosts_aliases'] %}{{ alias }}{{ " " if not loop.last }}{% endfor %}{% endif %}{{ '\n' -}}
+{{ hostvars[host]['ansible_' + interface]['ipv4']['address'] }} {{ host }} {{ hostvars[host]['ansible_hostname'] }}{{ " " if hostvars[host]['hosts_aliases'] is defined }}{% if hostvars[host]['hosts_aliases'] is defined %}{% for alias in hostvars[host]['hosts_aliases'] %}{{ alias }}{{ " " if not loop.last }}{% endfor %}{% endif %}{{ '\n' -}}
 {% elif hostvars[host]['ansible_' + interface]['ipv4']['address'] | ansible.netcommon.ipaddr('public') and hosts_all_public %}
-{{ hostvars[host]['ansible_' + interface]['ipv4']['address'] }} {{ hostvars[host]['ansible_hostname'] }} {{ host }}{{ " " if hostvars[host]['hosts_aliases'] is defined }}{% if hostvars[host]['hosts_aliases'] is defined %}{% for alias in hostvars[host]['hosts_aliases'] %}{{ alias }}{{ " " if not loop.last }}{% endfor %}{% endif %}{{ '\n' -}}
+{{ hostvars[host]['ansible_' + interface]['ipv4']['address'] }} {{ host }} {{ hostvars[host]['ansible_hostname'] }}{{ " " if hostvars[host]['hosts_aliases'] is defined }}{% if hostvars[host]['hosts_aliases'] is defined %}{% for alias in hostvars[host]['hosts_aliases'] %}{{ alias }}{{ " " if not loop.last }}{% endfor %}{% endif %}{{ '\n' -}}
 {% elif not hosts_all_private and not hosts_all_public %}
-{{ hostvars[host]['ansible_default_ipv4']['address'] }} {{ hostvars[host]['ansible_hostname'] }} {{ host }}{{ " " if hostvars[host]['hosts_aliases'] is defined }}{% if hostvars[host]['hosts_aliases'] is defined %}{% for alias in hostvars[host]['hosts_aliases'] %}{{ alias }}{{ " " if not loop.last }}{% endfor %}{% endif %}{{ '\n' -}}
+{{ hostvars[host]['ansible_default_ipv4']['address'] }} {{ host }} {{ hostvars[host]['ansible_hostname'] }}{{ " " if hostvars[host]['hosts_aliases'] is defined }}{% if hostvars[host]['hosts_aliases'] is defined %}{% for alias in hostvars[host]['hosts_aliases'] %}{{ alias }}{{ " " if not loop.last }}{% endfor %}{% endif %}{{ '\n' -}}
 {% endif %}
 {% endif %}
 {% endfor %}
