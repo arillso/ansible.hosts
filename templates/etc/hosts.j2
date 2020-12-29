@@ -29,7 +29,7 @@ ff02::3 ip6-allhosts
 {% if hosts_inventory_to_hosts %}
 # The following lines are generated from the ansible inventory
 {% for host in groups['all'] %}
-{% if hostvars[host]['ansible_interfaces'] is defined %}
+{% if host != inventory_hostname and hostvars[host]['ansible_interfaces'] is defined %}
 {% for interface in hostvars[host]['ansible_interfaces'] %}
 {% if interface | regex_search('^((?!' +  hosts_exludes_interfaces | join('|') + '*).)*$')  %}
 {% if hostvars[host]['ansible_' + interface]['ipv4']['address'] | ansible.netcommon.ipaddr('private') and hosts_all_private %}
