@@ -1,6 +1,16 @@
 ---
 # tasks file for arillso.hosts
 
+- name: Gather network facts, if necessary.
+  ansible.builtin.setup:
+    gather_subset:
+      - '!all'
+      - '!min'
+      - 'network'
+  when: ansible_default_ipv4 is undefined
+  tags:
+    - configuration
+
 - name: "Edits the hosts file in /etc"
   become: true
   ansible.builtin.template:
